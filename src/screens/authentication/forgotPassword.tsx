@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import Button from '../../component/Button';
+import InputField from '../../component/InputField';
 
 const ForgotPassword = () => {
   return (
@@ -13,15 +14,9 @@ const ForgotPassword = () => {
       </View>
 
       <View>
-        <View style={styles.otpContainer}>
-          <View style={styles.otpBox}></View>
-          <View style={styles.otpBox}></View>
-          <View style={styles.otpBox}></View>
-          <View style={styles.otpBox}></View>
-          <View style={styles.otpBox}></View>
-          <View style={styles.otpBox}></View>
-        </View>
-        <Button title="VERIFY" navigationPath="Login" />
+        <InputField heading="E-Mail" placeholderName="E-Mail" />
+
+        <Button title="SEND OTP" navigationPath="OTPScreen" />
       </View>
     </View>
   );
@@ -32,25 +27,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'column',
     backgroundColor: '#F8FCFD',
-    gap: 200,
+    gap: 95,
     height: '100%',
   },
   experionLogo: {
     marginTop: 140,
     width: 205,
     height: 58,
-  },
-  otpContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 40,
-  },
-  otpBox: {
-    width: 47,
-    height: 58,
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: 'black',
   },
 });
 
