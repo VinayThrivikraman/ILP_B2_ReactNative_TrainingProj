@@ -4,10 +4,13 @@ import SearchBar from '../component/searchBar';
 import Contact from '../component/Contact';
 import {userLogin} from '../context/userSlice';
 import {useDispatch} from 'react-redux';
+import {setStringItem} from '../utils/Utils';
+import Constants from '../utils/Constants';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const LogoutFunction = () => {
+    setStringItem(Constants.IS_LOGIN, 'false');
     dispatch(userLogin(false));
   };
   return (

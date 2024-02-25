@@ -1,6 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomePage from '../screens/HomePage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import UserDetailsPage from '../screens/UserDetailsPage';
 
 const BottomNav = createBottomTabNavigator();
 export function AppNavigation() {
@@ -12,13 +13,13 @@ export function AppNavigation() {
         options={{
           headerShown: false,
           tabBarIcon: ({color, size}) => (
-            <MaterialIcons name="contacts" size={size} color={color} />
+            <MaterialIcons name="home" size={size} color={color} />
           ),
         }}
       />
       <BottomNav.Screen
         name="Profile"
-        component={HomePage}
+        component={UserDetailsPage}
         options={{
           headerShown: false,
           tabBarIcon: ({color, size}) => (

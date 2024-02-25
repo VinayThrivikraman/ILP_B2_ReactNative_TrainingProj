@@ -9,6 +9,7 @@ import {setStringItem} from '../../utils/Utils';
 import Constants from '../../utils/Constants';
 import {userLogin} from '../../context/userSlice';
 import {useDispatch} from 'react-redux';
+import {userDetails} from '../../context/userDataSlice';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -21,7 +22,7 @@ const Login = () => {
   const [password, setPassword] = React.useState('');
   const dispatch = useDispatch();
 
-  const LoginFunction = async () => {
+  const LoginFunction = async (email: string, password: string) => {
     console.log(email, password);
 
     const loginStatus = await loginUser({
@@ -29,11 +30,19 @@ const Login = () => {
       loginPassword: password,
     });
 
-    console.log(loginStatus);
+    console.log('\n\nLOGIN STATUS', loginStatus);
 
     if (loginStatus.success === true) {
       setStringItem(Constants.IS_LOGIN, 'true');
       dispatch(userLogin(true));
+      dispatch(
+        userDetails({
+          token: loginStatus.loginResp.token,
+          message: loginStatus.loginResp.message,
+          user_id: loginStatus.loginResp.user_id,
+          status: loginStatus.loginResp.status,
+        }),
+      );
     }
   };
   return (
