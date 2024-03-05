@@ -1,15 +1,14 @@
 import React from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
-const SearchBar = () => {
-  const [text, onChangeText] = React.useState('');
+const SearchBar = (props: any) => {
   return (
     <View>
       <TextInput
         style={styles.inputField}
-        value={text}
+        value={props.value}
         placeholder="Search Contacts"
-        onChangeText={onChangeText}
+        onChangeText={props.onChangeText}
       />
     </View>
   );
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     height: 45,
     paddingLeft: 20,
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8EDF2',
     borderRadius: 12,
   },
 });

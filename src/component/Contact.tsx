@@ -1,20 +1,26 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const Contact = (props: any) => {
+  const navigation: any = useNavigation();
+
+  const contactClick = () => {
+    navigation.navigate('CardListScreen', {
+      card_id: props.card_id,
+      contact_name: props.contact_name,
+    });
+  };
+
   return (
-    <View style={styles.contactContainer}>
-      <View
-        style={[
-          styles.profileImage,
-          {backgroundColor: props.profileImageColor},
-        ]}>
+    <TouchableOpacity style={styles.contactContainer} onPress={contactClick}>
+      <View style={[styles.profileImage, {backgroundColor: '#C21045'}]}>
         <Text style={styles.profileImageLetter}>
           {props.profileImageLetter}
         </Text>
       </View>
       <Text style={styles.contactName}>{props.contactName}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -34,7 +40,7 @@ const styles = StyleSheet.create({
   profileImageLetter: {
     fontSize: 30,
     fontWeight: '500',
-    color: 'black',
+    color: 'white',
   },
   contactName: {
     marginLeft: 15,

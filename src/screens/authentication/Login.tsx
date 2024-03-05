@@ -34,6 +34,9 @@ const Login = () => {
 
     if (loginStatus.success === true) {
       setStringItem(Constants.IS_LOGIN, 'true');
+      setStringItem(Constants.USER_ID, loginStatus.loginResp.user_id);
+      setStringItem(Constants.JWT_TOKEN, loginStatus.loginResp.token);
+
       dispatch(userLogin(true));
       dispatch(
         userDetails({

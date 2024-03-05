@@ -7,6 +7,7 @@ import Constants from './utils/Constants';
 import {getItem} from './utils/Utils';
 import {LoginScreenNavigation} from './navigation/LoginScreenNavigation';
 import Splashscreen from './screens/SplashScreen';
+import NewAppNavigation from './navigation/NewAppNavigation';
 
 const Main = () => {
   const isLoggedIn = useSelector((state: any) => state.userReducer.isLoggedIn);

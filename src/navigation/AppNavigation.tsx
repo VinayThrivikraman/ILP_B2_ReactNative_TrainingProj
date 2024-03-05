@@ -1,29 +1,42 @@
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomePage from '../screens/HomePage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import UserDetailsPage from '../screens/UserDetailsPage';
+import HomePage from '../screens/HomePage';
+import ProfilePage from '../screens/ProfilePage';
+import {MainStackNavigation} from './MainStackNavigation';
 
 const BottomNav = createBottomTabNavigator();
+
 export function AppNavigation() {
   return (
-    <BottomNav.Navigator>
+    <BottomNav.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          height: 80,
+        },
+        tabBarLabelStyle: {
+          marginBottom: 10,
+          fontSize: 15,
+          color: '#6D8B92',
+        },
+      }}>
       <BottomNav.Screen
         name="Home"
-        component={HomePage}
+        component={MainStackNavigation}
         options={{
           headerShown: false,
-          tabBarIcon: ({color, size}) => (
-            <MaterialIcons name="home" size={size} color={color} />
+          tabBarIcon: () => (
+            <MaterialIcons name="contacts" size={30} color={'#6D8B92'} />
           ),
         }}
       />
       <BottomNav.Screen
         name="Profile"
-        component={UserDetailsPage}
+        component={ProfilePage}
         options={{
           headerShown: false,
-          tabBarIcon: ({color, size}) => (
-            <MaterialIcons name="home" size={size} color={color} />
+          tabBarIcon: () => (
+            <MaterialIcons name="person" size={35} color={'#6D8B92'} />
           ),
         }}
       />
